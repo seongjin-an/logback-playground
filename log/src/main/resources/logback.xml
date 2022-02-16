@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds" debug="true">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+
+    <property name="LOG_DIR" value="/home/seongjin/workspace/_/_log/log/src/main/resources/logs" />
+    <property name="LOG_PATH_NAME_API_CONTROLLER_1" value="${LOG_DIR}/stdout1.log" />
+    <property name="LOG_PATH_NAME_API_CONTROLLER_2" value="${LOG_DIR}/stdout2.log" />
+    <property name="GW_LOG_PATH_NAME" value="${LOG_DIR}/stdout_gw.log" />
+
+
+
+    <appender name="LOG_FILE_1" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH_NAME_API_CONTROLLER_1}</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${LOG_PATH_NAME_API_CONTROLLER_1}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 50MB -->
+                <maxFileSize>50MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-6level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="LOG_FILE_2" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH_NAME_API_CONTROLLER_2}</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${LOG_PATH_NAME_API_CONTROLLER_2}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 50MB -->
+                <maxFileSize>50MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-6level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="WHOLE_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${GW_LOG_PATH_NAME}</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${GW_LOG_PATH_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 50MB -->
+                <maxFileSize>50MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-6level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="com.ansj.log.controller.ApiController1" level="INFO">
+        <appender-ref ref="LOG_FILE_1"/>
+    </logger>
+
+    <logger name="com.ansj.log.controller.ApiController2" level="INFO">
+        <appender-ref ref="LOG_FILE_2" />
+    </logger>
+
+
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="WHOLE_LOG_FILE" />
+    </root>
+
+</configuration>

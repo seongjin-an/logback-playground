@@ -1,0 +1,17 @@
+23:40:58.819 INFO   com.ansj.log.LogApplication - Starting LogApplication using Java 1.8.0_281 on seongjin-ubuntu with PID 12377 (/home/seongjin/workspace/_/_log/log/build/classes/java/main started by seongjin in /home/seongjin/workspace/_/_log)
+23:40:58.821 INFO   com.ansj.log.LogApplication - No active profile set, falling back to default profiles: default
+23:40:59.415 INFO   o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+23:40:59.420 INFO   o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+23:40:59.421 INFO   o.a.catalina.core.StandardService - Starting service [Tomcat]
+23:40:59.421 INFO   o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+23:40:59.460 INFO   o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:40:59.461 INFO   o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 613 ms
+23:40:59.666 INFO   o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+23:40:59.678 INFO   o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+23:40:59.687 INFO   com.ansj.log.LogApplication - Started LogApplication in 1.14 seconds (JVM running for 1.725)
+23:41:07.871 INFO   o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23:41:07.871 INFO   o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+23:41:07.872 INFO   o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+23:41:07.887 INFO   c.a.log.controller.ApiController1 - api controller11111
+23:41:19.321 INFO   c.a.log.controller.ApiController2 - api controller22222
+23:41:33.561 INFO   c.a.log.controller.ApiController1 - api controller11111
